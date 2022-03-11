@@ -8,8 +8,8 @@ class Youtube {
     };
   }
 
-  mostPopular() {
-    return fetch(
+  async mostPopular() {
+    return await fetch(
       `${this.baseUrl}/videos?part=snippet&chart=mostPopular&maxResults=25&key=${this.key}`,
       this.getRequestOptions,
     )
@@ -18,14 +18,13 @@ class Youtube {
       .catch(error => console.log('error', error));
   }
 
-  search(query) {
-    return fetch(
+  async search(query) {
+    return await fetch(
       `${this.baseUrl}/search?part=snippet&maxResults=25&q=${query}&type=video&key=${this.key}`,
       this.getRequestOptions,
     )
       .then(res => res.json())
       .then(result => result.items.map(item => ({ ...item, id: item.id.videoId })))
-      .then(items => items)
       .catch(error => console.log('error', error));
   }
 }
