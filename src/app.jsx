@@ -6,8 +6,21 @@ import styles from 'app.module.css';
 
 const App = ({ youtube }) => {
   const [videos, setVideos] = useState([]);
-  const onSearch = useCallback(searchValue => {
-    youtube.search(searchValue).then(videos => setVideos(videos));
+  const [selectedVideo, setSelectedVideo] = useState(null);
+  const onSearch = useCallback(
+    searchValue => {
+      youtube.search(searchValue).then(videos => {
+        setVideos(videos);
+        setSelectedVideo(null);
+      });
+    },
+    [youtube],
+  );
+  const onReset = useCallback(() => {
+    setSelectedVideo(null);
+  }, []);
+  const onClickVideo = useCallback(item => {
+    setSelectedVideo(item);
   }, []);
 
   useEffect(() => {
@@ -16,10 +29,15 @@ const App = ({ youtube }) => {
 
   return (
     <div className={styles.container}>
-      <Header onSearch={onSearch}>header</Header>
+      <Header onSearch={onSearch} onReset={onReset}>
+        header
+      </Header>
       <main>
-        <VideoList videos={videos} />
-        <VideoDetail />
+        {!selectedVideo ? (
+          <VideoList videos={videos} onClickVideo={onClickVideo} />
+        ) : (
+          <VideoDetail videos={videos} onClickVideo={onClickVideo} selectedVideo={selectedVideo} />
+        )}
       </main>
     </div>
   );

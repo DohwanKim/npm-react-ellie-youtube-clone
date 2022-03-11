@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from 'components/header/header.module.css';
 
-const Header = ({ onSearch }) => {
+const Header = ({ onSearch, onReset }) => {
   const logoImage = require('assets/logo.png');
   const searchImage = require('assets/search.png');
   const inputRef = React.useRef();
@@ -13,7 +13,7 @@ const Header = ({ onSearch }) => {
 
   return (
     <header>
-      <div className={styles.logoArea}>
+      <div className={styles.logoArea} onClick={onReset}>
         <img src={logoImage} alt="" />
         Youtube
       </div>

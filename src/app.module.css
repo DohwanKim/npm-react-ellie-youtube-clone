@@ -2,7 +2,17 @@ body {
   background-color: #ddd
 }
 
+main {
+  padding: 1rem 0;
+}
+
 .container {
   width: 1140px;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 1140px) {
+  .container {
+    width: 100%;
+  }
 }

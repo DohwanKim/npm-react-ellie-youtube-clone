@@ -14,6 +14,7 @@
 
 .videoItem img {
   width: 200px;
+  max-height: 500px;
   margin-right: 1rem;
   border-radius: .25rem;
 }
@@ -37,4 +38,12 @@
   font-weight: 300;
   font-size: .9rem;
   width: 100%;
+}
+
+.videoItem.sideItem {
+  margin-bottom: .5rem;
+}
+
+.videoItem.sideItem img {
+  width: 100px;
 }

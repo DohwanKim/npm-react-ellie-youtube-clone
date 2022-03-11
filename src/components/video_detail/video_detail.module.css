@@ -1,3 +1,36 @@
 .videoDetail {
   display: flex;
 }
+
+.videoDetail .leftSide {
+  width: 100%;
+  margin-right: 1rem;
+}
+
+.videoDetail .leftSide iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+
+.videoDetail .leftSide pre {
+  white-space: pre-wrap;
+}
+
+.videoDetail .rightSide {
+  flex-basis: 330px;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .videoDetail {
+    flex-direction: column;
+  }
+
+  .videoDetail .leftSide {
+    margin-right: 0;
+  }
+
+  .videoDetail .leftSide .info {
+    padding: 1rem;
+  }
+}
