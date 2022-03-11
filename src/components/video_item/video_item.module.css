@@ -1,0 +1,40 @@
+.videoItem {
+  display: flex;
+  background-color: #f7f7f7;
+  box-shadow: 0 .25rem .25rem rgba(0,0,0,.15);
+  padding: .5rem;
+  border-radius: .25rem;
+  cursor: pointer;
+  transition: .2s all ease-in-out;
+}
+
+.videoItem:hover {
+  transform: scale(1.02);
+}
+
+.videoItem img {
+  width: 200px;
+  margin-right: 1rem;
+  border-radius: .25rem;
+}
+
+.videoItem .videoInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.videoItem .videoTitle {
+  font-size: .95rem;
+  font-weight: 300;
+  width: 100%;
+  text-align: left;
+}
+
+.videoItem .videoSubTitle {
+  color: #333;
+  font-weight: 300;
+  font-size: .9rem;
+  width: 100%;
+}
