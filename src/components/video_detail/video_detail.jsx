@@ -3,12 +3,15 @@ import VideoItem from 'components/video_item/video_item';
 import styles from 'components/video_detail/video_detail.module.css';
 
 const VideoDetail = ({ videos, onClickVideo, selectedVideo }) => {
-  console.log(selectedVideo);
-
   return (
     <div className={styles.videoDetail}>
       <div className={styles.leftSide}>
-        <iframe title="youtube" src={`http://www.youtube.com/embed/${selectedVideo.id}`} frameBorder="0" />
+        <iframe
+          title="youtube"
+          src={`http://www.youtube.com/embed/${selectedVideo.id}`}
+          frameBorder="0"
+          allowFullScreen
+        />
         <div className={styles.info}>
           <h3>{selectedVideo.snippet?.localized?.title ?? ''}</h3>
           <h4>{selectedVideo.snippet?.channelTitle ?? ''}</h4>

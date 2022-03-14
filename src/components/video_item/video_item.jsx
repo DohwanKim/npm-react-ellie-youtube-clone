@@ -1,6 +1,7 @@
 import styles from 'components/video_item/video_item.module.css';
+import { memo } from 'react';
 
-const VideoItem = ({ video, onClickVideo, isSideItem }) => {
+const VideoItem = memo(({ video, onClickVideo, isSideItem }) => {
   return (
     <>
       <div className={`${styles.videoItem} ${isSideItem ? styles.sideItem : ''}`} onClick={() => onClickVideo(video)}>
@@ -12,6 +13,6 @@ const VideoItem = ({ video, onClickVideo, isSideItem }) => {
       </div>
     </>
   );
-};
+});
 
 export default VideoItem;

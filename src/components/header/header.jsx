@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from 'components/header/header.module.css';
 
-const Header = ({ onSearch, onReset }) => {
+const Header = memo(({ onSearch, onReset }) => {
   const logoImage = require('assets/logo.png');
   const searchImage = require('assets/search.png');
   const inputRef = React.useRef();
@@ -34,6 +34,6 @@ const Header = ({ onSearch, onReset }) => {
       </div>
     </header>
   );
-};
+});
 
 export default Header;

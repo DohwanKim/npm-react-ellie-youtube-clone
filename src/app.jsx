@@ -25,13 +25,11 @@ const App = ({ youtube }) => {
 
   useEffect(() => {
     youtube.mostPopular().then(videos => setVideos(videos));
-  }, []);
+  }, [youtube]);
 
   return (
     <div className={styles.container}>
-      <Header onSearch={onSearch} onReset={onReset}>
-        header
-      </Header>
+      <Header onSearch={onSearch} onReset={onReset} />
       <main>
         {!selectedVideo ? (
           <VideoList videos={videos} onClickVideo={onClickVideo} />
